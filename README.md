@@ -4,7 +4,7 @@ This repository contains boilerplate code, which can be used to establish basic 
 
 ## Installation
 
-1. Install `pip` and `[virtualenv](https://virtualenv.pypa.io/en/latest/installation/)`.
+1. Install `pip` and [`virtualenv`](https://virtualenv.pypa.io/en/latest/installation/).
 
 2. Create virtualenv by running `python3 -m viertualenv venv`.
 
