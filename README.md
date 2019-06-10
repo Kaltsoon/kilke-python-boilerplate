@@ -1,6 +1,6 @@
-# Python boilerplate for Kilke
+# Python boilerplate for [kilke](https://github.com/Kaltsoon/kilke)
 
-This repository contains boilerplate code, which can be used to establish basic communication with the `system-io` server.
+This repository contains boilerplate code, which can be used to establish basic communication with the kilke's `system-io` server.
 
 ## Installation
 
