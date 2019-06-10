@@ -1,9 +1,9 @@
 import time
 import random
 
-def readSensors(onMeasurement):
+def read_sensors(on_measurement):
    while True:
-    onMeasurement({
+    on_measurement({
         'type': 'sensor',
         'time': int(round(time.time(), 0)),
         'data': {
