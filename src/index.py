@@ -34,7 +34,7 @@ def input_message(key, message):
   logging.info('Received a message from system-io')
   message = json.loads(message)
   messagePayload = message['payload']
-  messageType = payload['type']
+  messageType = message['type']
 
   if (messageType == 'pump_configuration'):
     handle_pump_configuration(payload, on_pump_ack, on_pump_fault)
