@@ -12,6 +12,7 @@ except:
 SYSTEM_ID = os.getenv('SYSTEM_ID')
 SYSTEM_IO_PORT = os.getenv('SYSTEM_IO_PORT')
 SYSTEM_IO_HOST = os.getenv('SYSTEM_IO_HOST')
+API_URL = os.getenv('API_URL');
 
 def get_error_message(variable_name):
   return f'{variable_name} is not defined. Either define it in the .env file or as and environment variable'
