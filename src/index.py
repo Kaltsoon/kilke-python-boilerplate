@@ -101,7 +101,7 @@ def read_state_worker():
     except:
       logging.error('Failed to publish sensor state')
 
-    sleep(READ_STATE_INTERVAL)
+    time.sleep(READ_STATE_INTERVAL)
 
 def sync_system_config_worker():
   while True:
@@ -117,7 +117,7 @@ def sync_system_config_worker():
     except:
       logging.error('Failed to sync system config')
     
-    sleep(10)
+    time.sleep(10)
 
 def on_connect(socket):
     logging.info('Connected to system-io')
