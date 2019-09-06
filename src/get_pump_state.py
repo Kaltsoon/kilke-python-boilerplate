@@ -2,7 +2,7 @@ import json
 import os
 
 dirname = os.path.dirname(__file__)
-filename = os.path.join(dirname, '../data/pump_state.json')
+filename = os.path.join(dirname, '../../pump_state.json')
 
 def get_pump_state():
   data = {}
