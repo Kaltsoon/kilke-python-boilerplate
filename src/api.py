@@ -9,3 +9,6 @@ class ApiClient:
 
     return response.json()
 
+  def get_system(self, system_id):
+    return self.get(f'/v1/systems/{system_id}')
+
