@@ -8,7 +8,8 @@ from socketclusterclient import Socketcluster
 
 from config import SYSTEM_ID, SYSTEM_IO_HOST, SYSTEM_IO_PORT, API_URL
 from api import ApiClient
-from get_reactor_state import get_reactor_state
+from get_pump_state import get_pump_state
+from get_sensor_state import get_sensor_state
 from update_pump_config import update_pump_config
 from update_system_config import update_system_config
 
@@ -60,10 +61,9 @@ def handle_input_message(key, message):
 def read_state_worker():
   while True:
     now = get_time_now()
-    reactor_state = get_reactor_state()
 
     try:
-      pumps_state = reactor_state['pumps']
+      pumps_state = get_pump_state()
       time = pump_state['time']
 
       if (time > now - READ_STATE_INTERVAL):
@@ -78,18 +78,26 @@ def read_state_worker():
       logging.error('Failed to publish pump state')
 
     try: 
-      sensors_state = reactor_state['sensors']
+      sensors_state = get_sensor_state()
       time = sensor_state['time']
 
       if (time > now - READ_STATE_INTERVAL):
         sensor_measurements = {
           'type': 'sensor',
           'time': time,
-          'data': sensors_state['data'],
+          'data': sensors_state['sen'],
           'calibrated': True
         }
 
         publish_measurement(sensor_measurements)
+
+        binary_sensor_measurements = {
+          'type': 'binary',
+          'time': time,
+          'data': sensors_state['bin']
+        }
+
+        publish_measurement(binary_sensor_measurements)
     except:
       logging.error('Failed to publish sensor state')
 
@@ -102,9 +110,8 @@ def sync_system_config_worker():
       
       config = {}
 
-      if ('config' in system) {
+      if ('config' in system):
         config = system['config']
-      }
 
       update_system_config(config)
     except:

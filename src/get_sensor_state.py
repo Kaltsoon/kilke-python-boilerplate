@@ -1,9 +1,10 @@
 import json
+import os
 
 dirname = os.path.dirname(__file__)
-filename = os.path.join(dirname, '../data/reactor_state.json')
+filename = os.path.join(dirname, '../data/sensor_state.json')
 
-def get_reactor_state():
+def get_sensor_state():
   data = {}
 
   with open(filename, 'r') as f:
