@@ -63,14 +63,16 @@ def read_state_worker():
     now = get_time_now()
 
     try:
-      pumps_state = get_pump_state()
+      pump_state = get_pump_state()
       mtime = pump_state['time']
+
+      logging.info('Pump state is %s' % pump_state)
 
       if (mtime > now - READ_STATE_INTERVAL):
         pump_measurement = {
           'type': 'pump',
           'time': mtime,
-          'data': pumps_state['data']
+          'data': pump_state['data']
         }
 
         publish_measurement(pump_measurement)    
@@ -78,14 +80,16 @@ def read_state_worker():
       logging.error('Failed to publish pump state')
 
     try: 
-      sensors_state = get_sensor_state()
+      sensor_state = get_sensor_state()
       mtime = sensor_state['time']
+
+      logging.info('Sensor state is %s' % sensor_state)
 
       if (mtime > now - READ_STATE_INTERVAL):
         sensor_measurements = {
           'type': 'sensor',
           'time': mtime,
-          'data': sensors_state['sen'],
+          'data': sensor_state['sen'],
           'calibrated': True
         }
 
@@ -94,7 +98,7 @@ def read_state_worker():
         binary_sensor_measurements = {
           'type': 'binary',
           'time': mtime,
-          'data': sensors_state['bin']
+          'data': sensor_state['bin']
         }
 
         publish_measurement(binary_sensor_measurements)
