@@ -64,12 +64,12 @@ def read_state_worker():
 
     try:
       pumps_state = get_pump_state()
-      time = pump_state['time']
+      mtime = pump_state['time']
 
-      if (time > now - READ_STATE_INTERVAL):
+      if (mtime > now - READ_STATE_INTERVAL):
         pump_measurement = {
           'type': 'pump',
-          'time': time,
+          'time': mtime,
           'data': pumps_state['data']
         }
 
@@ -79,12 +79,12 @@ def read_state_worker():
 
     try: 
       sensors_state = get_sensor_state()
-      time = sensor_state['time']
+      mtime = sensor_state['time']
 
-      if (time > now - READ_STATE_INTERVAL):
+      if (mtime > now - READ_STATE_INTERVAL):
         sensor_measurements = {
           'type': 'sensor',
-          'time': time,
+          'time': mtime,
           'data': sensors_state['sen'],
           'calibrated': True
         }
@@ -93,7 +93,7 @@ def read_state_worker():
 
         binary_sensor_measurements = {
           'type': 'binary',
-          'time': time,
+          'time': mtime,
           'data': sensors_state['bin']
         }
 
