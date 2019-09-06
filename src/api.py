@@ -5,10 +5,10 @@ class ApiClient:
     self.url = url
 
   def get(self, path):
-    response = requests.get(f'{self.url}{path}')
+    response = requests.get('%s%s' % (self.url, self.path))
 
     return response.json()
 
   def get_system(self, system_id):
-    return self.get(f'/v1/systems/{system_id}')
+    return self.get('/v1/systems/%s' % system_id)
 

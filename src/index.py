@@ -18,17 +18,17 @@ socket = None
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
-INPUT_CHANNEL = f'input.{SYSTEM_ID}'
+INPUT_CHANNEL = 'input.%s' % SYSTEM_ID
 OUTPUT_CHANNEL = 'output'
 READ_STATE_INTERVAL = 5
 
-logging.info(f'Using system id {SYSTEM_ID}')
+logging.info('Using system id %s' % SYSTEM_ID)
 
 def create_message(type, payload):
   return json.dumps({ 'systemId': SYSTEM_ID, 'type': type, 'payload': payload })
 
 def publish_measurement(measurements):
-  logging.info(f'Sending measurement {measurements}')
+  logging.info('Sending measurement %s' % measurements)
   socket.publish(OUTPUT_CHANNEL, create_message('measurement', measurements))
 
 def handle_pump_configuration(payload):
@@ -145,7 +145,7 @@ def on_authentication(socket, isAuthenticated):
     sync_system_config_thread.start()
     
 if __name__ == '__main__':
-    socket = Socketcluster.socket(f'ws://{SYSTEM_IO_HOST}:{SYSTEM_IO_PORT}/socketcluster/') 
+    socket = Socketcluster.socket('ws://%s:%s/socketcluster/' % (SYSTEM_IO_HOST, SYSTEM_IO_PORT)) 
     socket.setBasicListener(on_connect, on_disconnect, on_connect_error)
     socket.setAuthenticationListener(on_set_authentication, on_authentication)
     socket.connect()

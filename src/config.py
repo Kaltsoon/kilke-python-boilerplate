@@ -15,7 +15,7 @@ SYSTEM_IO_HOST = os.getenv('SYSTEM_IO_HOST')
 API_URL = os.getenv('API_URL');
 
 def get_error_message(variable_name):
-  return f'{variable_name} is not defined. Either define it in the .env file or as and environment variable'
+  return '%s is not defined. Either define it in the .env file or as and environment variable' % variable_name
 
 if (SYSTEM_ID == None):
   raise Exception(get_error_message('SYSTEM_ID'))

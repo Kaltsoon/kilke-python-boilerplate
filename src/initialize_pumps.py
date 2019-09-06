@@ -15,7 +15,7 @@ def initialize_pumps(on_ack, on_fault):
     except:
       data = {}
     
-    logging.info(f'Initializing pumps with data {data}')
+    logging.info('Initializing pumps with data %s' % data)
 
     for type in data: 
       rpm = data[type]
