@@ -3,7 +3,7 @@ import json
 from run_pump import run_pump
 
 dirname = os.path.dirname(__file__)
-filename = os.path.join(dirname, '../data/pump_config.json')
+filename = os.path.join(dirname, '../nemo/pump_config.json')
 
 def update_pump_config(pump, config):
   data = {}

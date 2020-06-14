@@ -39,10 +39,10 @@ def handle_pump_configuration(payload):
   type =  payload['type']
 
   if ('manualRpm' in payload):
-    config['manualRpm'] = payload['manualRpm']
+    config['manrpm'] = payload['manualRpm']
 
   if ('automaticRpm' in payload):
-    config['automaticRpm'] = payload['automaticRpm']
+    config['autorpm'] = payload['automaticRpm']
   
   update_pump_config(type, config)
 
