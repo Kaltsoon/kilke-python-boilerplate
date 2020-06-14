@@ -10,5 +10,5 @@ class ApiClient:
     return response.json()
 
   def get_system(self, system_id):
-    return self.get('/v1/systems/%s' % system_id)
+    return self.get('/api/v1/systems/%s' % system_id)
 

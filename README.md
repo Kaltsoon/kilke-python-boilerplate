@@ -18,6 +18,7 @@ This repository contains boilerplate code, which can be used to establish basic 
 SYSTEM_ID=<YOUR_SYSTEM_ID>
 SYSTEM_IO_HOST=<YOUR_SYSTEM_IO_HOST>
 SYSTEM_IO_PORT=<YOUR_SYSTEM_IO_PORT>
+API_URL=<API_URL>
 ```
 
 ## Usage
