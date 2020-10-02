@@ -4,15 +4,11 @@ This repository contains boilerplate code, which can be used to establish basic 
 
 ## Installation
 
-1. Install `pip` and [`virtualenv`](https://virtualenv.pypa.io/en/latest/installation/).
+1. Install `pipenv` by running `sudo apt install pipenv` or by following the [installation instructions](https://github.com/pypa/pipenv#installation).
 
-2. Create virtualenv by running `python3 -m virtualenv venv`.
+2. Install dependencies by running `pipenv install`
 
-3. Activate virtualenv by running `. venv/bin/activate`.
-
-4. Install dependencies by running `pip install -r requirements.txt`
-
-5. Create a file named `.env` into the project's root folder, and define values for `SYSTEM_ID` (id of the system you want to communicate with), `SYSTEM_IO_HOST` (`system-io` server host) and `SYSTEM_IO_PORT` (`system-io` server port) environment variables in the following manner:
+3. Create a file named `.env` into the project's root folder, and define values for `SYSTEM_ID` (id of the system you want to communicate with), `SYSTEM_IO_HOST` (`system-io` server host) and `SYSTEM_IO_PORT` (`system-io` server port) environment variables in the following manner:
 
 ```
 SYSTEM_ID=<YOUR_SYSTEM_ID>
@@ -23,4 +19,4 @@ API_URL=<API_URL>
 
 ## Usage
 
-First make sure that you have activated virtualenv by running `. venv/bin/activate`. After virtualenv has been activated ou can start the program by running `python3 ./src/index.py`.
+Run `pipenv run start` to start the `index.py` script.
