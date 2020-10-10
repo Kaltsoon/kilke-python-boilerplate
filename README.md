@@ -19,4 +19,4 @@ API_URL=<API_URL>
 
 ## Usage
 
-Run `pipenv run start` to start the `index.py` script.
+Run `pipenv run python3 ./src/index.py` to start the `index.py` script.
