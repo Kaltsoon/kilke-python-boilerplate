@@ -4,9 +4,9 @@ This repository contains boilerplate code, which can be used to establish basic 
 
 ## Installation
 
-1. Install `pipenv` by running `sudo apt install pipenv` or by following the [installation instructions](https://github.com/pypa/pipenv#installation).
+1. Install [Poetry](https://python-poetry.org/) by following the [installation instructions](https://python-poetry.org/docs/#installation).
 
-2. Install dependencies by running `pipenv install`
+2. Install dependencies by running `poetry install`
 
 3. Create a file named `.env` into the project's root folder, and define values for `SYSTEM_ID` (id of the system you want to communicate with), `SYSTEM_IO_HOST` (`system-io` server host) and `SYSTEM_IO_PORT` (`system-io` server port) environment variables in the following manner:
 
@@ -19,4 +19,4 @@ API_URL=<API_URL>
 
 ## Usage
 
-Run `pipenv run python3 ./src/index.py` to start the `index.py` script.
+Run `poetry run python3 src/index.py` to start the `index.py` script.
